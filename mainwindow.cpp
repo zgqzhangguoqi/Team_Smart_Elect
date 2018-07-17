@@ -41,14 +41,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(timer1,SIGNAL(timeout()),this,SLOT(update_cap()));
     timer1->start(500);
 
-    /*
-     *显示屏模拟数据
-     */
-//    for(int c=0;c<10;c++){
-//        false_data[c];
-
-//    }
-    // m_nTimerID = this->startTimer(TIMER_TIMEOUT);
     //开始绘图
      Paint();
 
