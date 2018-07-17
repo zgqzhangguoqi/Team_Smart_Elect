@@ -12,7 +12,7 @@
 #include<QSpinBox>
 #define inf 0x3f3f3f3f
 int a=0,b=0,c=0,int_spinBox_temp=0,p=0;
-//获得数据中最大值和最小值、平均数
+//获得数据中最大值和最小值、平均数uhguh
 int n=30;       //n为数据个数
 double sum=0;
 double ave=0;
