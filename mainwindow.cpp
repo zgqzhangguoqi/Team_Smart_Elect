@@ -8,6 +8,12 @@
 #include<QString>
 #include<QDebug>
 #include <QTimerEvent>
+//
+#include <QDataStream>
+#include <QMessageBox>
+#include <QString>
+#include <QByteArray>
+//
 #define TIMER_TIMEOUT   (5*1000)
 #include<QSpinBox>
 #define inf 0x3f3f3f3f
@@ -28,6 +34,23 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
      ui->setupUi(this);
+     //初始化套接字
+
+     //QTcpServer的基本操作:
+     //1、调用listen监听端口。
+    // 2、连接信号newConnection，在槽函数里调用nextPendingConnection获取连接进来的socket
+
+     //QTcpSocket的基本能操作：
+     //1、调用connectToHost连接服务器。
+     //2、连接信号readyRead槽函数，异步读取数据
+
+     this->socket = new QTcpSocket(this);
+     this->server = new QTcpServer(this);
+     this->server->listen(QHostAddress::Any,6666);
+     connect(this->server,SIGNAL(newConnection()),this,SLOT(acceptConnection()));
+
+     //套接字初始化完毕
+
     //更改默认窗口大小  1000*650
     this->resize( QSize( 1000, 650 ));
     image = QImage(600,300,QImage::Format_RGB32);  //画布的初始化大小设为600*300，使用32位颜色
@@ -398,3 +421,41 @@ void MainWindow::update_cap(){
 
 }
 
+//以下为socket程序
+
+void MainWindow::acceptConnection()
+{
+    //返回一个socket连接
+        this->socket = this->server->nextPendingConnection();//nextPendingConnection获取已建立连接的套接字
+
+    //此时一旦客户端有消息发出，就会出现readyRead信号，我们将此信号与接收数据的槽链接起来
+
+    connect(socket,SIGNAL(readyRead()),this,SLOT(receiveData()));
+}
+
+void MainWindow::sendMessage()
+{
+    QString str = ui->sending_message->text();//获取linetext中输入的字符串
+    this->socket->write(ui->sending_message->text().toUtf8());//通过write将其写入套接字toUtf8是转化成一种数据形式
+
+    this->ui->received_message->append(str);//在SCREEN上显示所写的字
+
+
+}
+
+void MainWindow::receiveData()
+{
+
+    QString str = this->socket->readAll();//使用readAll来获取套接字所传送的数据
+    this->ui->received_message->append(str); //打印
+}
+void MainWindow::displayError(QAbstractSocket::SocketError socketError)
+{
+    qDebug()<<socket->errorString(); //出错时打印错误
+        socket->close();
+}
+
+void MainWindow::on_send_message_push_button_clicked()//点击发送按钮，即可转入sendMessage函数
+{
+    sendMessage();
+}
