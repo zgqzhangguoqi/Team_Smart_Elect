@@ -9,6 +9,7 @@
 #include<QDateTime>
 #include<QTimer>
 #include<QString>
+#include<QtNetwork>
 
 namespace Ui {
 class MainWindow;
@@ -18,6 +19,18 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+    //添加服务器程基本变量
+public:
+           QTcpServer *server;
+           QTcpSocket *socket;
+
+      private slots:
+               void sendMessage();       //发送消息的方法
+               void acceptConnection();  //接收客户端发送的数据
+               void receiveData();       //接收数据的方法
+               void displayError(QAbstractSocket::SocketError socketError);//出错时的方法
+
+    //
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
@@ -39,6 +52,7 @@ protected:
 
        QPainter painter(this);
        painter.drawImage(40,100,image);
+
     }
 
 private slots:
@@ -51,6 +65,7 @@ private slots:
     void on_combox_time_listen();
     void on_btn_temp_clicked();
     void update_cap();
+    void on_send_message_push_button_clicked();
 };
 
 #endif // MAINWINDOW_H

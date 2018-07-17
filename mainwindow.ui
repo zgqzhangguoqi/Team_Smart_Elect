@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>996</width>
-    <height>693</height>
+    <width>1167</width>
+    <height>891</height>
    </rect>
   </property>
   <property name="font">
@@ -27,25 +27,6 @@
     <normaloff>:/new/prefix1/onepage (1).png</normaloff>:/new/prefix1/onepage (1).png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="lb_logo">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>0</y>
-      <width>41</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="resouses.qrc">:/new/prefix1/onepage (1).png</pixmap>
-    </property>
-   </widget>
    <widget class="QLabel" name="lb_title">
     <property name="geometry">
      <rect>
@@ -686,22 +667,6 @@
      </property>
     </item>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>810</x>
-      <y>470</y>
-      <width>81</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="resouses.qrc">:/new/prefix1/er.png</pixmap>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
@@ -734,13 +699,104 @@
      <string>℃</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>0</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resouses.qrc">:/new/prefix1/onepage (1).png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>440</y>
+      <width>91</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resouses.qrc">:/new/prefix1/er.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="received_message">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>560</y>
+      <width>104</width>
+      <height>71</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="sending_message">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>670</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>13</x>
+      <y>670</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>发送的数据</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>590</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>接收的数据</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="send_message_push_button">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>710</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>发送</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>996</width>
+     <width>1167</width>
      <height>23</height>
     </rect>
    </property>
