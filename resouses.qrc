@@ -2,5 +2,7 @@
     <qresource prefix="/new/prefix1">
         <file>er.png</file>
         <file>onepage (1).png</file>
+        <file>user (1).png</file>
+        <file>password (1).png</file>
     </qresource>
 </RCC>
