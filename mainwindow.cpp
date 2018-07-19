@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent) :
      connect(tcpSocket,SIGNAL(readyRead()),this,SLOT(receiveData()));
      connect(tcpSocket,SIGNAL(error(QAbstractSocket::SocketError)),
              this,SLOT(displayError(QAbstractSocket::SocketError)));
-     connect(tcpSocket,SIGNAL(hostFound()),this,SLOT(judgement()));
+     connect(tcpSocket,SIGNAL(connected()),this,SLOT(judgement()));
      //this->server->listen(QHostAddress::Any,6666);
      //connect(this->server,SIGNAL(newConnection()),this,SLOT(acceptConnection()));
 
@@ -437,8 +437,8 @@ void MainWindow::update_cap(){
 void MainWindow::newConnect()
 {
     tcpSocket->abort();
-    //tcpSocket->connectToHost(ui->hostLineEdit->text(),ui->portLineEdit->text().toInt());
-    tcpSocket->connectToHost("localhost",6666);
+    tcpSocket->connectToHost(ui->ip_address->text(),ui->port->text().toInt());
+    //tcpSocket->connectToHost("localhost",6666);
                 //connect(tcpSocket,SIGNAL(readyRead()),this,SLOT(receiveData()));
 }
 
@@ -466,6 +466,8 @@ void MainWindow::receiveData()
 
      str = "Server "+str_date_time+str;
      this->ui->received_message->append(str);
+
+
 }
 void MainWindow::displayError(QAbstractSocket::SocketError socketError)
 {
