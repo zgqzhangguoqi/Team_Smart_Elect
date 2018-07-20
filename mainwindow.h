@@ -21,14 +21,24 @@ class MainWindow : public QMainWindow
 
     //添加服务器程基本变量
 public:
-           QTcpServer *server;
-           QTcpSocket *socket;
+
+           QTcpServer *tcpServer;
+           QTcpSocket *tcpSocket;
+           QString message;  //存放从服务器接收到的字符串
+           quint16 blockSize; //存放文件的大小信息
+           //系统时间
+               QDateTime current_date_time;
+               QString str_date_time;
+
 
       private slots:
                void sendMessage();       //发送消息的方法
-               void acceptConnection();  //接收客户端发送的数据
+               void newConnect();  //接收客户端发送的数据
                void receiveData();       //接收数据的方法
                void displayError(QAbstractSocket::SocketError socketError);//出错时的方法
+               void judgement();
+
+
 
     //
 public:
@@ -66,6 +76,7 @@ private slots:
     void on_btn_temp_clicked();
     void update_cap();
     void on_send_message_push_button_clicked();
+    void on_listen_clicked();
 };
 
 #endif // MAINWINDOW_H
