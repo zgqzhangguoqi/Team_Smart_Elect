@@ -734,8 +734,8 @@
    <widget class="QTextEdit" name="received_message">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>560</y>
+      <x>630</x>
+      <y>740</y>
       <width>161</width>
       <height>71</height>
      </rect>
@@ -744,8 +744,8 @@
    <widget class="QLineEdit" name="sending_message">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>670</y>
+      <x>860</x>
+      <y>740</y>
       <width>113</width>
       <height>20</height>
      </rect>
@@ -754,8 +754,8 @@
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>13</x>
-      <y>670</y>
+      <x>870</x>
+      <y>780</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -767,8 +767,8 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>590</y>
+      <x>510</x>
+      <y>780</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -780,8 +780,8 @@
    <widget class="QPushButton" name="send_message_push_button">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>710</y>
+      <x>810</x>
+      <y>810</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -793,8 +793,8 @@
    <widget class="QPushButton" name="listen">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>710</y>
+      <x>220</x>
+      <y>570</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -806,8 +806,8 @@
    <widget class="QLineEdit" name="ip_address">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>750</y>
+      <x>80</x>
+      <y>570</y>
       <width>113</width>
       <height>20</height>
      </rect>
@@ -816,8 +816,8 @@
    <widget class="QLineEdit" name="port">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>750</y>
+      <x>330</x>
+      <y>790</y>
       <width>113</width>
       <height>20</height>
      </rect>
@@ -826,8 +826,8 @@
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>750</y>
+      <x>20</x>
+      <y>570</y>
       <width>54</width>
       <height>12</height>
      </rect>
@@ -839,8 +839,8 @@
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>750</y>
+      <x>270</x>
+      <y>790</y>
       <width>54</width>
       <height>16</height>
      </rect>

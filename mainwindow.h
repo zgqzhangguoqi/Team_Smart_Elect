@@ -22,6 +22,7 @@ class MainWindow : public QMainWindow
     //添加服务器程基本变量
 public:
 
+          QString deal,tem,light,hum;
            QTcpServer *tcpServer;
            QTcpSocket *tcpSocket;
            QString message;  //存放从服务器接收到的字符串
@@ -46,7 +47,7 @@ public:
     ~MainWindow();
      void Paint();
      int temp_data[10]={0};
-     int false_data[10]={4,14,20,26,24,20,16,10,8,2};
+     int false_data[10]={26,27,25,26,24,25,26,26,26,27};
      //virtual void timerEvent( QTimerEvent *event);
 
 private:
