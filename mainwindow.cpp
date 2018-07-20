@@ -49,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
      connect(tcpSocket,SIGNAL(error(QAbstractSocket::SocketError)),
              this,SLOT(displayError(QAbstractSocket::SocketError)));
      connect(tcpSocket,SIGNAL(connected()),this,SLOT(judgement()));
+
      //this->server->listen(QHostAddress::Any,6666);
      //connect(this->server,SIGNAL(newConnection()),this,SLOT(acceptConnection()));
 
@@ -301,11 +302,11 @@ void MainWindow::on_lcd_temp_listen()
     //QDateTime time = QDateTime::currentDateTime();
    // QString str = time.toString("ss");
     if(b==0){
-        ui->lcd_temp->display(90);
+        ui->lcd_temp->display(26);
         b=1;
     }else
     {
-        ui->lcd_temp->display(21);
+        ui->lcd_temp->display(27);
         b=0;
     }
 
@@ -314,11 +315,11 @@ void MainWindow::on_lcd_temp_listen()
 void MainWindow::on_lcd_hum_listen()
 {
     if(a==0){
-        ui->lcd_hum->display(98);
+        ui->lcd_hum->display(37);
         a=1;
     }else
     {
-        ui->lcd_hum->display(13);
+        ui->lcd_hum->display(38);
         a=0;
     }
 }
@@ -330,7 +331,7 @@ void MainWindow::on_edit_sun_listen()
         c=1;
     }else
     {
-        ui->edit_sun->setText("89");
+        ui->edit_sun->setText("50");
         c=0;
     }
 }
@@ -394,10 +395,10 @@ void MainWindow::on_combox_fan_set()
 
 void MainWindow::on_combox_time_listen()
 {
-        if(ui->combox_time->currentIndex()==0)          ui->edit_fan->setText("低速");
-            else if(ui->combox_time->currentIndex()==1) ui->edit_fan->setText("低速");
-            else if(ui->combox_time->currentIndex()==2) ui->edit_fan->setText("低速");
-            else if(ui->combox_time->currentIndex()==3) ui->edit_fan->setText("低速");
+        if(ui->combox_time->currentIndex()==0)         ; //ui->edit_fan->setText("低速");
+            else if(ui->combox_time->currentIndex()==1); //ui->edit_fan->setText("低速");
+            else if(ui->combox_time->currentIndex()==2); //ui->edit_fan->setText("低速");
+            else if(ui->combox_time->currentIndex()==3); //ui->edit_fan->setText("低速");
 }
 
 void MainWindow::on_btn_temp_clicked()
@@ -446,7 +447,7 @@ void MainWindow::sendMessage()
 {
     QString str = ui->sending_message->text();
 
-    //this->tcpSocket->write(ui->sending_message->text().toLatin1());
+
     this->tcpSocket->write(ui->sending_message->text().toUtf8());
     //显示
         current_date_time = QDateTime::currentDateTime();
@@ -463,6 +464,13 @@ void MainWindow::receiveData()
         str_date_time = current_date_time.toString("yyyy-MM-dd hh:mm:ss")+"\n";
 
      QString str = tcpSocket->readAll();
+     deal = str;
+
+     tem = deal.section(',', 1, 1);
+     hum = deal.section(',', 2, 2);
+     light = deal.section(',', 3, 3);
+
+
 
      str = "Server "+str_date_time+str;
      this->ui->received_message->append(str);
@@ -485,5 +493,5 @@ void MainWindow::on_listen_clicked()
 }
  void MainWindow::judgement()
  {
-       QMessageBox::warning(this,"哇哇哇","连接成功");
+       QMessageBox::warning(this,"提示","连接成功");
  }
